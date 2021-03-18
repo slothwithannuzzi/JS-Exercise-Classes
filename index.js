@@ -42,9 +42,9 @@ class Airplane {
   */
   
  class Person {
-    constructor(arr) {
-      this.name = arr.name;
-      this.age = arr.age;
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
       this.stomach = [];
     }
     eat(someFood) {
@@ -79,9 +79,9 @@ class Airplane {
   */
   
  class Car {
-    constructor(arr){
-      this.model = arr.model;
-      this.milesPerGallon = arr.milesPerGallon;
+    constructor(model, milesPerGallon){
+      this.model = model;
+      this.milesPerGallon = milesPerGallon;
       this.tank = 0;
       this.odometer = 0;
     }
@@ -102,7 +102,7 @@ class Airplane {
           distTrav += this.milesPerGallon;
         }
         this.odometer = distTrav;
-        return `I ran out of fuel at ${this.odemeter} miles!`
+        return `I ran out of fuel at ${this.odometer} miles!`;
       }
   }
   }
@@ -209,8 +209,19 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor {
+     constructor (projArr) {
+       super(projArr);
+       this.gradClassName = projArr.gradClassName;
+       this.favInstructor = projArr.favInstructor;
+     }
+     standUp(channel) {
+       return `${this.name} announces to ${channel}, @${channel} standy times!`;
+     }
+
+     debugsCode(student, subject) {
+       return `${this.name} debugs ${student.name}'s code on ${subject}`;
+     }
  }
   /*
     STRETCH PROBLEM (no tests!)
